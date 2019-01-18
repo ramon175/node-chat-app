@@ -16,6 +16,32 @@ class Users {
         return user;
     }
 
+    removeUser(id){
+
+        let user = this.getUser(id);
+
+        if(user){
+            this.users = this.users.filter((u) => u.id !== id);
+        }
+        
+        
+        return user;
+    }
+
+    getUser(id){
+        return this.users.filter((user) => user.id === id)[0];
+    }
+
+    getUserList(room){
+
+        let users = this.users.filter((user) => user.room === room);
+
+        let names = users.map((user) => user.name);
+
+        return names;
+
+    }
+
 
 }
 
